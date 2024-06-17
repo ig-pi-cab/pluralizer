@@ -12,10 +12,7 @@ public class PluralizerService {
 
         String[] resultados = new String[palabras.length];
         
-     
-
-        System.out.println(cantidadesPorRegla);
-
+    
         //Contar cuantas veces aplica cada regla, itera por el largo del array de palabras
         for (int i = 0; i < palabras.length; i++) {
             String palabra = palabras[i].toLowerCase().trim();
