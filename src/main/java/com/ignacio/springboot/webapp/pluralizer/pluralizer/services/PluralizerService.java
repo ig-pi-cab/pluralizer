@@ -1,6 +1,7 @@
 package com.ignacio.springboot.webapp.pluralizer.pluralizer.services;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 public class PluralizerService {
     public static String[] pluralizador(String[] palabras, Map<String, Integer> cantidadesPorRegla){
@@ -18,11 +19,13 @@ public class PluralizerService {
             String palabra = palabras[i].toLowerCase().trim();
             String resultado;
 
+            cantidadesPorRegla.putIfAbsent("Rule 1", 0);
+            System.out.println(cantidadesPorRegla);
+            cantidadesPorRegla.putIfAbsent("Rule 2", 0);
+            cantidadesPorRegla.putIfAbsent("Rule 3", 0);
+            cantidadesPorRegla.putIfAbsent("Rule 4", 0);
+            System.out.println(cantidadesPorRegla);
 
-            cantidadesPorRegla.put("Rule 1", 0);
-            cantidadesPorRegla.put("Rule 2", 0);
-            cantidadesPorRegla.put("Rule 3", 0);
-            cantidadesPorRegla.put("Rule 4", 0);
 
             //Obtiene el ultimo character
             char lastChar = palabra.charAt(palabra.length() - 1);
@@ -49,12 +52,19 @@ public class PluralizerService {
             }
 
             resultados[i] = resultado;
+            
         }
-        
+        System.out.println(cantidadesPorRegla);
+
         return resultados;
     }
-
     private static void incrementarRegla(Map<String, Integer> cantidadesPorRegla, String regla) {
-        cantidadesPorRegla.put(regla, cantidadesPorRegla.getOrDefault(regla, 0) + 1);
+        int count = cantidadesPorRegla.getOrDefault(regla, 0) + 1;
+        cantidadesPorRegla.put(regla, count);
     }
+
+    // private static void incrementarRegla(Map<String, Integer> cantidadesPorRegla, String regla) {
+    //     cantidadesPorRegla.put(regla, cantidadesPorRegla.getOrDefault(regla, 0) + 1);
+    // }
+    
 }

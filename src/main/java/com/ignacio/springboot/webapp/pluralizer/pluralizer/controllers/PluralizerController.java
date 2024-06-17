@@ -2,6 +2,7 @@ package com.ignacio.springboot.webapp.pluralizer.pluralizer.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class PluralizerController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El array de palabras no puede ser nulo o vacío");
         }
         try {
-            Map<String, Integer> cantidadesPorRegla = new HashMap<>();
+            Map<String, Integer> cantidadesPorRegla = new TreeMap<>();
             String[] palabrasPluralizadas = PluralizerService.pluralizador(palabras, cantidadesPorRegla);
             return new PluralizerModel(palabrasPluralizadas, cantidadesPorRegla);
         } catch (Exception e) {
