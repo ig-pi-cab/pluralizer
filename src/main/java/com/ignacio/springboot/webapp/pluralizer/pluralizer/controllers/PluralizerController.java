@@ -1,6 +1,5 @@
 package com.ignacio.springboot.webapp.pluralizer.pluralizer.controllers;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 

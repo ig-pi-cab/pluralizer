@@ -1,7 +1,6 @@
 package com.ignacio.springboot.webapp.pluralizer.pluralizer.services;
 
 import java.util.Map;
-import java.util.TreeMap;
 
 public class PluralizerService {
     public static String[] pluralizador(String[] palabras, Map<String, Integer> cantidadesPorRegla){
@@ -20,11 +19,9 @@ public class PluralizerService {
             String resultado;
 
             cantidadesPorRegla.putIfAbsent("Rule 1", 0);
-            System.out.println(cantidadesPorRegla);
             cantidadesPorRegla.putIfAbsent("Rule 2", 0);
             cantidadesPorRegla.putIfAbsent("Rule 3", 0);
             cantidadesPorRegla.putIfAbsent("Rule 4", 0);
-            System.out.println(cantidadesPorRegla);
 
 
             //Obtiene el ultimo character
