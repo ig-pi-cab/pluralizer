@@ -10,19 +10,22 @@ public class PluralizerService {
         String sOX = "sx";
         String zeta = "z";
 
-        //Palabras
         String[] resultados = new String[palabras.length];
         
-        //Inicializo cada una de las reglas en 0
-        cantidadesPorRegla.put("Rule 1", 0);
-        cantidadesPorRegla.put("Rule 2", 0);
-        cantidadesPorRegla.put("Rule 3", 0);
-        cantidadesPorRegla.put("Rule 4", 0);
-        
+     
+
+        System.out.println(cantidadesPorRegla);
+
         //Contar cuantas veces aplica cada regla, itera por el largo del array de palabras
         for (int i = 0; i < palabras.length; i++) {
             String palabra = palabras[i].toLowerCase().trim();
             String resultado;
+
+
+            cantidadesPorRegla.put("Rule 1", 0);
+            cantidadesPorRegla.put("Rule 2", 0);
+            cantidadesPorRegla.put("Rule 3", 0);
+            cantidadesPorRegla.put("Rule 4", 0);
 
             //Obtiene el ultimo character
             char lastChar = palabra.charAt(palabra.length() - 1);
@@ -32,6 +35,7 @@ public class PluralizerService {
             }else if(palabra.startsWith("la ")){
                 palabra = "las " + palabra.substring(3);
             }
+
             if (vocales.indexOf(lastChar) != -1) {
                 resultado = palabra + "s";
                 incrementarRegla(cantidadesPorRegla, "Rule 1");
@@ -48,7 +52,7 @@ public class PluralizerService {
 
             resultados[i] = resultado;
         }
-
+        
         return resultados;
     }
 

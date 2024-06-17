@@ -26,8 +26,6 @@ public class PluralizerController {
             Map<String, Integer> cantidadesPorRegla = new HashMap<>();
             String[] palabrasPluralizadas = PluralizerService.pluralizador(palabras, cantidadesPorRegla);
             return new PluralizerModel(palabrasPluralizadas, cantidadesPorRegla);
-        } catch (IllegalArgumentException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error interno del servidor", e);
         }
