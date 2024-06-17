@@ -4,6 +4,7 @@ import java.util.Map;
 
 public class PluralizerService {
     public static String[] pluralizador(String[] palabras, Map<String, Integer> cantidadesPorRegla){
+       
         //Variables de reglas
         String vocales ="aeiou";
         String sOX = "sx";
@@ -11,13 +12,13 @@ public class PluralizerService {
 
         //Palabras
         String[] resultados = new String[palabras.length];
-
+        
         //Inicializo cada una de las reglas en 0
         cantidadesPorRegla.put("Rule 1", 0);
         cantidadesPorRegla.put("Rule 2", 0);
         cantidadesPorRegla.put("Rule 3", 0);
         cantidadesPorRegla.put("Rule 4", 0);
-
+        
         //Contar cuantas veces aplica cada regla, itera por el largo del array de palabras
         for (int i = 0; i < palabras.length; i++) {
             String palabra = palabras[i].toLowerCase().trim();
