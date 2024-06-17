@@ -33,6 +33,7 @@ public class PluralizerService {
                 palabra = "las " + palabra.substring(3);
             }
 
+            //Reglas aplicadas 
             if (vocales.indexOf(lastChar) != -1) {
                 resultado = palabra + "s";
                 incrementarRegla(cantidadesPorRegla, "Rule 1");
